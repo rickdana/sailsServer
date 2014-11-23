@@ -106,6 +106,10 @@ module.exports = {
         require:true,
         columnName:'type'
     }
+    BONPLANS:{
+        collection:'bonplan'
+        via:'refcommerce'
+    }
   }
 };
 
