@@ -123,6 +123,10 @@ module.exports = {
         collection:'categorie_com',
         via:'refcommerce'
     }
+    BONPLANS:{
+        collection:'bonplan'
+        via:'refcommerce'
+    }
   }
 };
 
