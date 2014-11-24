@@ -19,9 +19,6 @@ module.exports = {
         columnName:'refavis',
         autoIncrement: true
     },
-    refcommerce:{
-        model:'commerce'
-    },
     contenuavis:{
         type:'text',
         size:512,
@@ -31,6 +28,14 @@ module.exports = {
     note:{
         type:'integer',
         columnName:'note'
+    },
+     refcommerce:{
+        model:'commerces'
+    },
+    auteur_avis:{
+        collection:'client',
+        via:'avis_publie',
+        dominant:true
     }
   }
 };

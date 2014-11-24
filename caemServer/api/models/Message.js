@@ -10,7 +10,7 @@ module.exports = {
     autoCreatedAt: false, // don't try and add a createdAt timestamp
     autoUpdatedAt: false, // don't try and add a updatedAt timestamp
 
-    tablename:'message',
+    tablename:'messages',
   attributes: {
     refmessage:{
         type: 'integer',
@@ -20,7 +20,7 @@ module.exports = {
         autoIncrement: true
     },
     refcommerce:{
-        model:'commerces'
+        model:'commerces',
     },
     libelle:{
         type:'string',

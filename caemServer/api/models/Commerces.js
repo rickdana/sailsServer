@@ -20,9 +20,6 @@ module.exports = {
         columnName:'refcommerce',
         autoIncrement: true
     },
-    refgalerie:{
-        model:'galerie'
-    },
     enseigne:{
         type: 'string',
         size: 70,
@@ -65,6 +62,7 @@ module.exports = {
     email:{
         type:'string',
         size:70,
+        email:true,
         columnName:'email'
     },
     siteinternet:{
@@ -105,6 +103,25 @@ module.exports = {
         size:45,
         require:true,
         columnName:'type'
+    },
+    refgalerie:{
+        model:'galerie'
+    },
+    avis:{
+        collection:'avis',
+        via:'refcommerce'
+    },
+    message:{
+        collection:'message',
+        via:'refcommerce'
+    },
+    bonplan:{
+        collection:'bonplan',
+        via:'commerce_refcommerce'
+    },
+    categorie_com:{
+        collection:'categorie_com',
+        via:'refcommerce'
     }
   }
 };

@@ -1,4 +1,0 @@
-sailsServer
-===========
-
-sereur REST 

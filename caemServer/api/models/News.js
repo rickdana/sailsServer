@@ -6,7 +6,7 @@
 */
 
 module.exports = {
-    autoPK: false,        // don't try and add a unique ID; we already have one
+     autoPK: false,        // don't try and add a unique ID; we already have one
     autoCreatedAt: false, // don't try and add a createdAt timestamp
     autoUpdatedAt: false, // don't try and add a updatedAt timestamp
 

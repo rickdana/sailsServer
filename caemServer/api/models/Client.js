@@ -6,7 +6,7 @@
 */
 
 module.exports = {
-    autoPK: false,        // don't try and add a unique ID; we already have one
+     autoPK: false,        // don't try and add a unique ID; we already have one
     autoCreatedAt: false, // don't try and add a createdAt timestamp
     autoUpdatedAt: false, // don't try and add a updatedAt timestamp
 
@@ -22,6 +22,7 @@ module.exports = {
     email:{
          type:'string',
         size:70,
+        email:true,
         columnName:'email'
     },
     motdepasse:{
@@ -67,7 +68,15 @@ module.exports = {
     codepostal:{
        type:'integer',
         require:true,
-        columnName:'codepostal'
+        columnName:'codpostal'
+    },
+    avis_publie:{
+        collection:'avis',
+        via:'auteur_avis'
+    },
+    centre_Dinteret:{
+        collection:'centre_Dinteret',
+        via:'interet_client'
     }
   }
 };

@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-    findGalerie:function(req,res){
+	 findGalerie:function(req,res){
         sails.log.debug("***********************FIND Galerie*********************");
         Galerie.find({}).exec(function(err,galerie){
             if(err)

@@ -6,7 +6,7 @@
 */
 
 module.exports = {
-autoPK: false,        // don't try and add a unique ID; we already have one
+    autoPK: false,        // don't try and add a unique ID; we already have one
     autoCreatedAt: false, // don't try and add a createdAt timestamp
     autoUpdatedAt: false, // don't try and add a updatedAt timestamp
     tablename:'galerie',
@@ -42,6 +42,10 @@ autoPK: false,        // don't try and add a unique ID; we already have one
         type:'string',
         size:45,
         colomnName:'image5'
+    },
+    commerce:{
+        collection:'commerces',
+        via:'refgalerie'
     }
   }
 };
