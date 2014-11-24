@@ -31,8 +31,8 @@ module.exports = {
         columnName:'descriptif'
     },
     refcommerce:{
-        collection:'commerces',
-        via:'categorie_com',
+        model:'categorie_com',
+        via:'categorie_com'
         dominant:true
     },
     catcom_centre_dinteret:{
