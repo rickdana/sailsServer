@@ -21,7 +21,7 @@ module.exports = {
     image1:{
         type:'string',
         size:45,
-        require: true,
+        required: true,
         colomnName:'image1'
     },
     image2:{
