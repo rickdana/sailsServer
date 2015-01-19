@@ -1,7 +1,7 @@
 /**
- * Centre_DinteretController
+ * Secteur_dactiviteController
  *
- * @description :: Server-side logic for managing centre_dinterets
+ * @description :: Server-side logic for managing secteur_dactivites
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 

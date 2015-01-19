@@ -12,30 +12,33 @@ module.exports = {
 
     tablename:'avis',
   attributes: {
-    refavis:{
+    idavis:{
        type: 'integer',
         unique: true,
         primaryKey:true,
-        columnName:'refavis',
+        columnName:'idavis',
         autoIncrement: true
     },
-    contenuavis:{
+    contenuAvis:{
         type:'text',
         size:512,
         require:true,
-        colomnName:'contenuavis'
+        colomnName:'contenuAvis'
     },
     note:{
         type:'integer',
         columnName:'note'
     },
-     refcommerce:{
-        model:'commerces'
+     commerce_idcommerce:{
+        model:'commerce'
     },
-    auteur_avis:{
-        collection:'client',
-        via:'avis_publie',
-        dominant:true
+    dateEmissionAvis:{
+        type:'date',
+        require:true,
+        columnName:'dateEmissionAvis'
+    },
+    client_idclient:{
+        model:'client'
     }
   }
 };

@@ -12,32 +12,23 @@ module.exports = {
 
     tablename:'categorie_com',
   attributes: {
-    refcategorie_com:{
+    idcategorie_com:{
         type: 'integer',
         unique: true,
         primaryKey:true,
-        columnName:'refcategorie_com',
+        columnName:'idcategorie_com',
         autoIncrement: true
     },
-    libellecat:{
+    libelecat:{
         type:'string',
         size:45,
         require:true,
-        columnName:'libellecat'
+        columnName:'libelecat'
     },
     descriptif:{
         type:'string',
         size:45,
         columnName:'descriptif'
-    },
-    refcommerce:{
-        collection:'commerces',
-        via:'categorie_com',
-        dominant:true
-    },
-    catcom_centre_dinteret:{
-        collection:'centre_Dinteret',
-        via:'catCom'
     }
   }
 };

@@ -1,17 +1,16 @@
 /**
-* Commerces.js
+* Commerce.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
-
 module.exports = {
 
     autoPK: false,        // don't try and add a unique ID; we already have one
     autoCreatedAt: false, // don't try and add a createdAt timestamp
     autoUpdatedAt: false, // don't try and add a updatedAt timestamp
 
-    tablename:'commerces',
+    tablename:'commerce',
   attributes: {
     refcommerce:{
         type: 'integer',
@@ -45,18 +44,18 @@ module.exports = {
     },
     tel_fixe:{
         type:'string',
-        size:20,
+        size:15,
         require:true,
         columnName:'tel_fixe'
     },
     tel_mobile:{
         type:'string',
-        size:20,
+        size:15,
         columnName:'tel_mobile'
     },
     fax:{
         type:'string',
-        size:20,
+        size:15,
         columnName:'fax'
     },
     email:{
@@ -95,6 +94,7 @@ module.exports = {
     motdepasse:{
         type:'string',
         size:45,
+        password:true,
         require:true,
         columnName:'motdepasse'
     },
@@ -104,25 +104,32 @@ module.exports = {
         require:true,
         columnName:'type'
     },
-    refgalerie:{
-        model:'galerie'
+    icone:{
+         type:'string',
+        size:45,
+        required: true,
+        columnName:'icone'
     },
-    avis:{
-        collection:'avis',
-        via:'refcommerce'
+    image1:{
+        type:'string',
+        size:45,
+        required: true,
+        columnName:'image1'
     },
-    message:{
-        collection:'message',
-        via:'refcommerce'
+    image2:{
+        type:'string',
+        size:45,
+        columnName:'image2'
     },
-    bonplan:{
-        collection:'bonplan',
-        via:'commerce_refcommerce'
+    image3:{
+        type:'string',
+        size:45,
+        columnName:'image3'
     },
-    categorie_com:{
-        collection:'categorie_com',
-        via:'refcommerce'
+    image4:{
+        type:'string',
+        size:45,
+        columnName:'image4'
     }
   }
 };
-

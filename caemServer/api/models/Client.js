@@ -4,6 +4,7 @@
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
+var bcrypt = require('bcrypt');
 
 module.exports = {
      autoPK: false,        // don't try and add a unique ID; we already have one
@@ -12,29 +13,29 @@ module.exports = {
 
     tablename:'client',
   attributes: {
-     refclient:{
+     idclient:{
         type: 'integer',
         unique: true,
         primaryKey:true,
-        columnName:'refclient',
+        columnName:'idclient',
         autoIncrement: true
     },
     email:{
          type:'string',
         size:70,
         email:true,
+        unique:true,
         columnName:'email'
     },
     motdepasse:{
         type:'string',
         size:45,
-        require:true,
+        required:true,
         columnName:'motdepasse'
     },
     nom:{
          type: 'string',
         size: 45,
-        required:true,
         columnName:'nom',
     },
     prenom:{
@@ -42,42 +43,61 @@ module.exports = {
         size: 45,
         columnName:'prenom',
     },
-    datenaissance:{
+    dateNaissance:{
         type:'date',
-        require:true,
-        columnName:'datenaissance'
+        columnName:'dateNaissance'
     },
     tel:{
          type:'string',
         size:20,
-        require:true,
+        required:true,
         columnName:'tel'
     },
     adresse:{
         type:'string',
         size:45,
-        require:true,
+        required:true,
         columnName:'adresse'
     },
     ville:{
         type:'string',
         size:45,
-        require:true,
+        required:true,
         columnName:'ville'
     },
     codepostal:{
        type:'integer',
-        require:true,
-        columnName:'codpostal'
+        required:true,
+        columnName:'codepostal'
     },
-    avis_publie:{
+    favorie_idfavorie:{
+        model:'favorie'
+    },
+    avisClient:{
         collection:'avis',
-        via:'auteur_avis'
+        via:'client_idclient'
     },
-    centre_Dinteret:{
-        collection:'centre_Dinteret',
-        via:'interet_client'
+    // override default ToJSON
+    toJSON: function() {
+      var obj = this.toObject();
+      delete obj.motdepasse;
+      return obj;
     }
+
+  },
+beforeCreate: function(client, cb) {
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(client.motdepasse, salt, function(err, hash) {
+        if (err) {
+          console.log(err);
+          cb(err);
+        }else{
+          client.motdepasse = hash;
+          console.log(hash);
+          cb(null, client);
+        }
+      });
+    });
   }
 };
 

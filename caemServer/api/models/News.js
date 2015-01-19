@@ -12,11 +12,11 @@ module.exports = {
 
     tablename:'news',
   attributes: {
-    refnews:{
+    idnews:{
          type: 'integer',
         unique: true,
         primaryKey:true,
-        columnName:'refnews',
+        columnName:'idnews',
         autoIncrement: true
     },
     dateEmission:{
@@ -29,7 +29,11 @@ module.exports = {
         size:'1024',
         require:true,
         columnName:'contenu'
+    },
+    image:{
+        type:'text',
+        size:256,
+        columnName:'image'
     }
   }
 };
-

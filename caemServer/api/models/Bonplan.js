@@ -12,27 +12,32 @@ module.exports = {
 
     tablename:'bonplan',
   attributes: {
-    refbonplan:{
+    idbonplan:{
         type: 'integer',
         unique: true,
         primaryKey:true,
-        columnName:'refbonplan',
+        columnName:'idbonplan',
         autoIncrement: true
     },
-    contenubp:{
+    titreBp:{
+        type:'string',
+        size:45,
+        require:true,
+        columnName:'titreBp'
+    },
+    contenuBp:{
         type:'text',
         size:1024,
         require:true,
-        columnName:'contenubp'
+        columnName:'contenuBp'
     },
-    dateEmission:{
+    dateEmissionBp:{
         type:'date',
         require:true,
-        columnName:'dateEmission'
+        columnName:'dateEmissionBp'
     },
-    commerce_refcommerce:{
-        model:'commerces'
+    commerce_idcommerce:{
+        model:'commerce'
     }
   }
 };
-

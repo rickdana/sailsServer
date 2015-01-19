@@ -10,24 +10,28 @@ module.exports = {
     autoCreatedAt: false, // don't try and add a createdAt timestamp
     autoUpdatedAt: false, // don't try and add a updatedAt timestamp
 
-    tablename:'messages',
+    tablename:'message',
   attributes: {
-    refmessage:{
+    idmessage:{
         type: 'integer',
         unique: true,
         primaryKey:true,
-        columnName:'refmessage',
+        columnName:'idmessage',
         autoIncrement: true
     },
-    refcommerce:{
-        model:'commerces',
+    commerce_idcommerce:{
+       model:'commerce'
     },
     libelle:{
-        type:'string',
-        size:512,
+        type:'text',
+        size:1024,
         require:true,
         columnName:'libelle'
+    },
+    dateEmission:{
+        type:'date',
+        require:true,
+        columnName:'dateEmission'
     }
   }
 };
-
