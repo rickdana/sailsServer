@@ -14,7 +14,7 @@ module.exports = {
 
             sails.log.debug("***********************FIND Client*********************");
                 Client.find(req.query).exec(function(err,com){
-                     console.log('Client: '+req.query);
+                     console.log(req.query);
                 if(err)
                       res.json({error:'oups error'},500);
                if(com)
@@ -108,14 +108,37 @@ module.exports = {
 // update metode
      updateClient:function(req,res){
         sails.log.debug("***********************Update Client*********************");
-        Client.update(/*a construire*/).exec(function afterwards(err,updated){
+        var param = null;
+        var token = req.get('token');
+        param = req.params.all();
+        sails.log.debug(req.body);
+         sails.log.debug(param.idclient);
+         if(token){
+                var decoded = jwt.decode(token,secret);
+                sails.log.debug(moment());
+                sails.log.debug('expire dans: '+decoded.exp);
+                if (moment().isAfter(decoded.exp)) {
+                        res.json({erreur:'Session expire'});
+                        sails.log.debug('Token expired');
+                  }
+                  else{
+                      sails.log.debug('Has good token');
+                      Client.update({idclient:param.idclient},req.body).exec(function afterwards(err,updated){
 
-          if (err) {
-             res.serverError(err);
+                          if (err) {
+                             res.serverError(err);
+                             sails.log.debug(err);
 
-          }
-                 console.log('Updated client : '+updated[0].refgalerie);
-                 res.json(updated[0])
-        });
+                          }
+                          if(updated){
+                              console.log('Updated client : '+updated);
+                              res.json({update:'Mise à jour réussi'});
+                          }
+                        });
+
+                  }
+
+            }
+
     }
 };
